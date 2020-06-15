@@ -1,0 +1,7 @@
+{
+  "powermode.enabled": true,
+  "powermode.enableShake": false,
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "Fira Code,Microsoft Yahei UI, monospace",
+  "terminal.integrated.fontFamily": "Menlo, Monaco, 'Courier New', monospace"
+}
