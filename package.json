@@ -1,0 +1,39 @@
+{
+  "name": "involution",
+  "version": "1.0.0",
+  "repository": "https://github.com/kscarrot/involution.git",
+  "author": "ks",
+  "license": "MIT",
+  "scripts": {
+    "commit": "git cz",
+    "lint": "lint-staged",
+    "test": "jest --watch",
+    "testall": "jest",
+    "cov": "rm -rf coverage && jest --coverage",
+    "format": "prettier --write \"src/**/*.ts\""
+  },
+  "dependencies": {
+    "@types/jest": "^25.2.3",
+    "cz-conventional-changelog": "^3.2.0",
+    "husky": "^4.2.5",
+    "jest": "^26.0.1",
+    "lint-staged": "^10.2.6",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn lint"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,json,md}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
