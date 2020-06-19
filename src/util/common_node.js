@@ -6,4 +6,9 @@ class BinaryTreeNode {
   }
 }
 
-module.exports = { BinaryTreeNode }
+function ListNode(val) {
+  this.val = val
+  this.next = null
+}
+
+module.exports = { BinaryTreeNode, ListNode }
