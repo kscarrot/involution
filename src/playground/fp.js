@@ -1,4 +1,16 @@
-const compose = (...fns) => (...args) => fns.reduce((acc, fn) => fn(acc), ...args)
+const easyCompose = (...fns) => (...args) => fns.reduce((acc, fn) => fn(acc), ...args)
+
+const compose = (...fns) => {
+  if (fns.length === 0) {
+    return (arg) => arg
+  }
+
+  if (fns.length === 1) {
+    return fns[0]
+  }
+
+  return fns.reduce((a, b) => (...args) => a(b(...args)))
+}
 
 const curry = (fn, arr = []) => (...args) => {
   if ([...arr, ...args].length === fn.length) {
@@ -14,4 +26,4 @@ const reduce = (array, fn, initialize) => {
   return result
 }
 
-module.exports = { compose, curry, reduce }
+module.exports = { easyCompose, compose, curry, reduce }
