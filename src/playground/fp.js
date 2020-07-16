@@ -26,4 +26,16 @@ const reduce = (array, fn, initialize) => {
   return result
 }
 
-module.exports = { easyCompose, compose, curry, reduce }
+const once = (fn) => {
+  let result
+  let isused = false
+  return function (...args) {
+    if (!isused) {
+      result = fn.apply(this, args)
+      isused = true
+    }
+    return result
+  }
+}
+
+module.exports = { easyCompose, compose, curry, reduce, once }

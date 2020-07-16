@@ -1,4 +1,4 @@
-const { easyCompose, compose, curry, reduce } = require('./fp')
+const { easyCompose, compose, curry, reduce, once } = require('./fp')
 
 describe('test fp easy  realize', () => {
   describe('test easyCompose', () => {
@@ -62,4 +62,12 @@ describe('test fp easy  realize', () => {
     const resutlt = reduce(array, (acc, cur) => (acc += cur), 0)
     expect(resutlt).toBe(6)
   })
+})
+
+describe('test once ', () => {
+  const mockFn = jest.fn()
+  const mockOnceFn = once(mockFn)
+  mockOnceFn(1)
+  mockOnceFn(2)
+  expect(mockFn.mock.calls.length).toBe(1)
 })
